@@ -8,16 +8,19 @@ class Task
 {
     public static function index(): string
     {
-        return 'Home of TaskController';
-    }
-    
-    public static function create(): string
+        return 'Index of TaskController';
+    }   
+   
+    //public static function show(): string
+    //{
+    //    return 'Show of TaskController';
+    //}
+
+    public static function store()// : string
     {
-        return 'Create of TaskController';
-    }
-    
-    public static function show(): string
-    {
-        return 'Show of TaskController';
+        $amount = $_POST['amount'];
+        $entityBody = file_get_contents('php://input');
+        //return var_dump($_POST);
+        return $entityBody;
     }
 }
