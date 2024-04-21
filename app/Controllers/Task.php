@@ -8,7 +8,13 @@ class Task
 {
     public static function index(): string
     {
-        return 'Index of TaskController';
+        //return 'Index of TaskController';
+        return json_encode([
+          ["title" => "Title task one"  , "description" => "Description task one"  , "done" => "2024-01-01"],
+          ["title" => "Title task two"  , "description" => "Description task two"  , "done" => "2024-01-02"],
+          ["title" => "Title task three", "description" => "Description task three", "done" => "2024-01-03"]         
+        ]);
+        
     }   
    
     //public static function show(): string
