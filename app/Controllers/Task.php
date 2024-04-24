@@ -6,17 +6,23 @@ namespace App\Controllers;
 
 class Task
 {
-    public static function index(): string
-    {
-        //return 'Index of TaskController';
-        return json_encode([
-          ["title" => "Title task one"  , "description" => "Description task one"  , "done" => "2024-01-01"],
-          ["title" => "Title task two"  , "description" => "Description task two"  , "done" => "2024-01-02"],
-          ["title" => "Title task three", "description" => "Description task three", "done" => "2024-01-03"]         
-        ]);
-        
-    }   
-   
+    public static function index(): string {
+        header("Content-type: application/json");
+        $db = \getDB(); // Asegúrate de usar el backslash si getDB() está en el espacio de nombres global
+
+        if (!$db) {
+            return json_encode(["error" => "No se pudo conectar a la base de datos."]);
+        }
+
+        try {
+            $stmt = $db->query("SELECT title, description FROM task");
+            $tasks = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return json_encode($tasks);
+        } catch (\PDOException $e) {
+            return json_encode(["error" => "Error al recuperar datos: " . $e->getMessage()]);
+        }
+    }
+
     //public static function show(): string
     //{
     //    return 'Show of TaskController';
