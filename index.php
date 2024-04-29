@@ -6,6 +6,7 @@
 // https://www.youtube.com/watch?v=QiO0uUwOiBg&list=PLr3d3QYzkw2xabQRUpcZ_IBk9W50M9pe-&index=62&t=290s
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/database.php'; // Confirma que el nombre del archivo es correcto
+/** */
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Permitir todos los métodos
