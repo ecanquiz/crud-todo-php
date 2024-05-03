@@ -41,9 +41,11 @@ $router->get('/database', function() {
 $router
     ->get( '/', [App\Controllers\Home::class, 'index'])
     ->get( '/tasks', [App\Controllers\Task::class, 'index'])
-    ->post( '/tasks', [App\Controllers\Task::class, 'create'])
-    ->delete('/tasks/{id_task}', [App\Controllers\Task::class, 'delete'])
-    ->put('/tasks/{id_task}', [App\Controllers\Task::class, 'edit']);
+    ->get( '/tasks/{id}', [App\Controllers\Task::class, 'show'])
+    ->post( '/tasks', [App\Controllers\Task::class, 'store'])
+    ->put('/tasks/{id}', [App\Controllers\Task::class, 'update'])
+    ->delete('/tasks/{id}', [App\Controllers\Task::class, 'delete']);
+
 
     //->register( '/tasks', [App\Controllers\Task::class, 'show'])
     //->post( '/tasks', [App\Controllers\Task::class, 'store']);
